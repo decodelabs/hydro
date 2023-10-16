@@ -10,7 +10,7 @@
         } ],
     "require": {
         "php": "^8.0",
-        "decodelabs/atlas": "^0.10.7",
+        "decodelabs/atlas": "^0.10.7|^0.11",
         "decodelabs/coercion": "^0.2.7",
         "decodelabs/exceptional": "^0.4.4",
         "decodelabs/veneer": "^0.10.19",
