@@ -29,10 +29,10 @@
     },
     "autoload": {
         "psr-4": {
-            "DecodeLabs\\Hydro\\": "src/Hydro"
+            "DecodeLabs\\Hydro\\": "src/"
         },
         "files": [
-            "src/global.php"
+            "src/Factory.php"
         ]
     },
     "extra": {

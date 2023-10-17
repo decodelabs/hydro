@@ -1,3 +1,5 @@
+* Refactored package file structure
+
 ## v0.1.1 (2023-10-16)
 * Updated Atlas dependency
 
