@@ -10,6 +10,7 @@
         } ],
     "require": {
         "php": "^8.1",
+
         "decodelabs/atlas": "^0.10.7|^0.11",
         "decodelabs/coercion": "^0.2.7",
         "decodelabs/exceptional": "^0.4.4",
@@ -21,7 +22,6 @@
     },
     "require-dev": {
         "decodelabs/collections": "^0.8.2",
-        "decodelabs/glitch": "^0.18.8",
         "decodelabs/phpstan-decodelabs": "^0.6.6"
     },
     "suggest": {
