@@ -9,7 +9,9 @@ declare(strict_types=1);
 
 namespace DecodeLabs\Hydro;
 
+use DecodeLabs\Hydro;
 use DecodeLabs\Hydro\Client\Guzzle;
+use DecodeLabs\Veneer;
 
 class Factory
 {
@@ -21,3 +23,7 @@ class Factory
         return Guzzle::class;
     }
 }
+
+
+// Register the Veneer facade
+Veneer::register(Factory::getClientClass(), Hydro::class);
