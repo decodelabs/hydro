@@ -32,7 +32,7 @@ abstract class ClientAbstract implements Client
         ?Closure $onFailure = null,
     ): ResponseInterface {
         $request = $this->newRequest(
-            'GET',
+            strtoupper($method),
             $this->prepareUrl($url)
         );
 
