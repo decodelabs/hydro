@@ -63,7 +63,7 @@ $file = Hydro::get('https://example.com/file.txt', function($response) {
             throw Exceptional::Runtime('Server error');
 
         default:
-            return Hydro::request('https://example.com/other.txt');
+            return Hydro::request('GET', 'https://example.com/other.txt');
     }
 });
 ```
