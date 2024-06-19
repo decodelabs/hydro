@@ -1,3 +1,4 @@
+## v0.1.2 (2024-06-19)
 * Fixed request() method
 * Made PHP8.1 minimum version
 * Refactored package file structure
