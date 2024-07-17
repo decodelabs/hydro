@@ -1,3 +1,5 @@
+* Updated Veneer dependency
+
 ## v0.1.3 (2024-06-19)
 * Fixed request() method
 * Made PHP8.1 minimum version
