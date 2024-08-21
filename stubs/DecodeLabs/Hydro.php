@@ -21,8 +21,8 @@ class Hydro implements Proxy
 {
     use ProxyTrait;
 
-    const VENEER = 'DecodeLabs\\Hydro';
-    const VENEER_TARGET = Inst::class;
+    const Veneer = 'DecodeLabs\\Hydro';
+    const VeneerTarget = Inst::class;
 
     public static Inst $instance;
 
