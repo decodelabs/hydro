@@ -11,7 +11,7 @@
     "require": {
         "php": "^8.1",
 
-        "decodelabs/atlas": "^0.11",
+        "decodelabs/atlas": "^0.12",
         "decodelabs/coercion": "^0.2.7",
         "decodelabs/exceptional": "^0.4.4",
         "decodelabs/veneer": "^0.11.6",
@@ -21,7 +21,7 @@
         "guzzlehttp/guzzle": "^7.0"
     },
     "require-dev": {
-        "decodelabs/collections": "^0.8.2",
+        "decodelabs/collections": "^0.9",
         "decodelabs/phpstan-decodelabs": "^0.6.6"
     },
     "suggest": {
