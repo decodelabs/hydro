@@ -12,24 +12,19 @@ namespace DecodeLabs\Hydro\Client;
 use DecodeLabs\Exceptional;
 use DecodeLabs\Hydro\ClientAbstract;
 use DecodeLabs\Hydro\ClientExceptionTrait;
-use DecodeLabs\Veneer\LazyLoad;
-
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Exception\ClientException as GuzzleClientException;
 use GuzzleHttp\Exception\ConnectException as GuzzleConnectException;
 use GuzzleHttp\Exception\RequestException as GuzzleRequestException;
 use GuzzleHttp\Exception\ServerException as GuzzleServerException;
 use GuzzleHttp\Psr7\Request;
-
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\NetworkExceptionInterface;
 use Psr\Http\Client\RequestExceptionInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-
 use Throwable;
 
-#[LazyLoad]
 class Guzzle extends ClientAbstract
 {
     public function newRequest(
