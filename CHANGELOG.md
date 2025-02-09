@@ -1,4 +1,5 @@
 * Updated Exceptional call signature
+* Added PHP8.4 to CI workflow
 
 ## v0.1.5 (2024-08-21)
 * Updated dependencies
