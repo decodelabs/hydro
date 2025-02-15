@@ -1,5 +1,10 @@
 * Updated Exceptional call signature
+* Upgraded PHPStan to v2
+* Updated dependencies
+* Tidied boolean logic
+* Fixed Exceptional syntax
 * Added PHP8.4 to CI workflow
+* Made PHP8.4 minimum version
 
 ## v0.1.5 (2024-08-21)
 * Updated dependencies

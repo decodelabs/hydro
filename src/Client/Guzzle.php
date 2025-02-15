@@ -122,7 +122,7 @@ class Guzzle extends ClientAbstract
     ): GuzzleClient {
         if (!class_exists(GuzzleClient::class)) {
             throw Exceptional::ComponentUnavailable(
-                'Cannot create HTTP Client, GuzzleHttp is not installed'
+                message: 'Cannot create HTTP Client, GuzzleHttp is not installed'
             );
         }
 

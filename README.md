@@ -57,10 +57,14 @@ Handle error status responses (or return alternative response):
 $file = Hydro::get('https://example.com/file.txt', function($response) {
     switch($response->getStatusCode()) {
         case 404:
-            throw Exceptional::Notfound('File not found');
+            throw Exceptional::Notfound(
+                message: 'File not found'
+            );
 
         case 500:
-            throw Exceptional::Runtime('Server error');
+            throw Exceptional::Runtime(
+                message: 'Server error'
+            );
 
         default:
             return Hydro::request('GET', 'https://example.com/other.txt');
