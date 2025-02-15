@@ -1,3 +1,4 @@
+## v0.1.6 (2025-02-15)
 * Updated Exceptional call signature
 * Upgraded PHPStan to v2
 * Updated dependencies
