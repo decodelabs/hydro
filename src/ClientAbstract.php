@@ -15,7 +15,6 @@ use DecodeLabs\Atlas;
 use DecodeLabs\Atlas\File;
 use DecodeLabs\Coercion;
 use DecodeLabs\Collections\Tree;
-use DecodeLabs\Collections\Tree\NativeMutable as NativeTree;
 use DecodeLabs\Deliverance\DataReceiver;
 use DecodeLabs\Exceptional;
 use DecodeLabs\Hydro\Psr\ClientException;
@@ -141,9 +140,9 @@ abstract class ClientAbstract implements Client
         string|array $url,
         ?Closure $onFailure = null
     ): Tree {
-        if (!class_exists(NativeTree::class)) {
+        if (!class_exists(Tree::class)) {
             throw Exceptional::ComponentUnavailable(
-                'Cannot expand JSON response without decodelabs/collections'
+                message: 'Cannot expand JSON response without decodelabs/collections'
             );
         }
 
@@ -151,9 +150,9 @@ abstract class ClientAbstract implements Client
 
         if (is_iterable($json)) {
             /** @var iterable<int|string, mixed> $json */
-            $output = new NativeTree($json);
+            $output = new Tree($json);
         } else {
-            $output = new NativeTree(null, $json);
+            $output = new Tree(null, $json);
         }
 
         /** @var Tree<mixed> $output */
@@ -181,7 +180,7 @@ abstract class ClientAbstract implements Client
 
             if (!$out instanceof ResponseInterface) {
                 throw Exceptional::Runtime(
-                    'Failure callback must return a PSR7 ResponseInterface'
+                    message: 'Failure callback must return a PSR7 ResponseInterface'
                 );
             }
 
@@ -222,7 +221,7 @@ abstract class ClientAbstract implements Client
 
         if (empty($url)) {
             throw Exceptional::InvalidArgument(
-                'No request URL specified'
+                message: 'No request URL specified'
             );
         }
 

@@ -26,4 +26,7 @@ class Factory
 
 
 // Register the Veneer facade
-Veneer::register(Factory::getClientClass(), Hydro::class);
+Veneer\Manager::getGlobalManager()->register(
+    Factory::getClientClass(),
+    Hydro::class
+);

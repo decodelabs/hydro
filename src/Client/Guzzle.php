@@ -55,59 +55,59 @@ class Guzzle extends ClientAbstract
                 return $responseException->getResponse();
             }
 
-            throw Exceptional::Client([
-                'message' => $responseException->getMessage(),
-                'code' => $responseException->getCode(),
-                'previous' => $responseException,
-                'data' => $request,
-                'traits' => [
+            throw Exceptional::Client(
+                message: $responseException->getMessage(),
+                code: $responseException->getCode(),
+                previous: $responseException,
+                data: $request,
+                traits: [
                     ClientExceptionTrait::class
                 ],
-                'interfaces' => [
+                interfaces: [
                     ClientExceptionInterface::class
                 ]
-            ]);
+            );
         } catch (GuzzleConnectException $connectionException) {
             // Network error
-            throw Exceptional::Network([
-                'message' => $connectionException->getMessage(),
-                'code' => $connectionException->getCode(),
-                'previous' => $connectionException,
-                'data' => $request,
-                'traits' => [
+            throw Exceptional::Network(
+                message: $connectionException->getMessage(),
+                code: $connectionException->getCode(),
+                previous: $connectionException,
+                data: $request,
+                traits: [
                     ClientExceptionTrait::class
                 ],
-                'interfaces' => [
+                interfaces: [
                     NetworkExceptionInterface::class
                 ]
-            ]);
+            );
         } catch (GuzzleRequestException $requestException) {
             // Invalid request
-            throw Exceptional::Request([
-                'message' => $requestException->getMessage(),
-                'code' => $requestException->getCode(),
-                'previous' => $requestException,
-                'data' => $request,
-                'traits' => [
+            throw Exceptional::Request(
+                message: $requestException->getMessage(),
+                code: $requestException->getCode(),
+                previous: $requestException,
+                data: $request,
+                traits: [
                     ClientExceptionTrait::class
                 ],
-                'interfaces' => [
+                interfaces: [
                     RequestExceptionInterface::class
                 ]
-            ]);
+            );
         } catch (Throwable $e) {
-            throw Exceptional::Request([
-                'message' => $e->getMessage(),
-                'code' => $e->getCode(),
-                'previous' => $e,
-                'data' => $request,
-                'traits' => [
+            throw Exceptional::Request(
+                message: $e->getMessage(),
+                code: $e->getCode(),
+                previous: $e,
+                data: $request,
+                traits: [
                     ClientExceptionTrait::class
                 ],
-                'interfaces' => [
+                interfaces: [
                     ClientExceptionInterface::class
                 ]
-            ]);
+            );
         }
     }
 
@@ -122,7 +122,7 @@ class Guzzle extends ClientAbstract
     ): GuzzleClient {
         if (!class_exists(GuzzleClient::class)) {
             throw Exceptional::ComponentUnavailable(
-                'Cannot create HTTP Client, GuzzleHttp is not installed'
+                message: 'Cannot create HTTP Client, GuzzleHttp is not installed'
             );
         }
 
