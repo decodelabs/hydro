@@ -124,9 +124,11 @@ abstract class ClientAbstract implements Client
     public function getJson(
         string|array $url,
         ?Closure $onFailure = null
-    ): mixed {
+    ): string|int|float|bool|array|null {
         $output = $this->getString($url, $onFailure);
-        return json_decode($output, true);
+        /** @var string|int|float|bool|array<string,int|float|bool|array<mixed>>|null $output */
+        $output = json_decode($output, true);
+        return $output;
     }
 
 
@@ -134,7 +136,7 @@ abstract class ClientAbstract implements Client
      * Fetch json file over HTTP
      *
      * @param array<string, mixed> $url
-     * @return Tree<mixed>
+     * @return Tree<string|int|float|bool>
      */
     public function getJsonTree(
         string|array $url,
@@ -149,20 +151,20 @@ abstract class ClientAbstract implements Client
         $json = $this->getJson($url, $onFailure);
 
         if (is_iterable($json)) {
-            /** @var iterable<int|string, mixed> $json */
+            // @phpstan-ignore-next-line
             $output = new Tree($json);
         } else {
             $output = new Tree(null, $json);
         }
 
-        /** @var Tree<mixed> $output */
+        /** @var Tree<string|int|float|bool> $output */
         return $output;
     }
 
 
 
     /**
-     * @param array<string, mixed> $options
+     * @param array<string,mixed> $options
      */
     protected function manageRequest(
         RequestInterface $request,
@@ -216,7 +218,7 @@ abstract class ClientAbstract implements Client
         string|array $url
     ): string {
         if (is_array($url)) {
-            $url = Coercion::toStringOrNull($url['url']) ?? '';
+            $url = Coercion::tryString($url['url']) ?? '';
         }
 
         if (empty($url)) {

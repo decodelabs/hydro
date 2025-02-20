@@ -50,7 +50,7 @@ class Hydro implements Proxy
     public static function getTempFile(array|string $url, ?Ref3 $onFailure = NULL): Ref4 {
         return static::$_veneerInstance->getTempFile(...func_get_args());
     }
-    public static function getJson(array|string $url, ?Ref3 $onFailure = NULL): mixed {
+    public static function getJson(array|string $url, ?Ref3 $onFailure = NULL): array|string|int|float|bool|null {
         return static::$_veneerInstance->getJson(...func_get_args());
     }
     public static function getJsonTree(array|string $url, ?Ref3 $onFailure = NULL): Ref5 {

@@ -76,18 +76,19 @@ interface Client extends ClientInterface
     /**
      * Fetch json file over HTTP
      *
-     * @param string|array<string, mixed> $url
+     * @param string|array<string,mixed> $url
+     * @return string|int|float|bool|array<string,int|float|bool|array<mixed>>|null
      */
     public function getJson(
         string|array $url,
         ?Closure $onFailure = null
-    ): mixed;
+    ): string|int|float|bool|array|null;
 
     /**
      * Fetch json file over HTTP and return as Tree
      *
      * @param string|array<string, mixed> $url
-     * @return Tree<mixed>
+     * @return Tree<string|int|float|bool>
      */
     public function getJsonTree(
         string|array $url,
