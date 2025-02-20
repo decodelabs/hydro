@@ -1,3 +1,7 @@
+## v0.1.7 (2025-02-15)
+* Upgraded Coercion dependency
+* Improved json typing
+
 ## v0.1.6 (2025-02-15)
 * Updated Exceptional call signature
 * Upgraded PHPStan to v2

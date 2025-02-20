@@ -11,17 +11,17 @@
     "require": {
         "php": "^8.4",
 
-        "decodelabs/atlas": "^0.12",
-        "decodelabs/coercion": "^0.2.7",
-        "decodelabs/exceptional": "^0.5",
-        "decodelabs/veneer": "^0.12.1",
+        "decodelabs/atlas": "^0.12.4",
+        "decodelabs/coercion": "^0.3",
+        "decodelabs/exceptional": "^0.5.3",
+        "decodelabs/veneer": "^0.12.6",
 
-        "psr/http-client": "^1.0",
+        "psr/http-client": "^1.0.3",
         "psr/http-message": "^2.0",
-        "guzzlehttp/guzzle": "^7.0"
+        "guzzlehttp/guzzle": "^7.9.2"
     },
     "require-dev": {
-        "decodelabs/collections": "^0.10",
+        "decodelabs/collections": "^0.10.6",
         "decodelabs/phpstan-decodelabs": "^0.7"
     },
     "suggest": {
