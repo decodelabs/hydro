@@ -21,7 +21,7 @@
         "guzzlehttp/guzzle": "^7.9.2"
     },
     "require-dev": {
-        "decodelabs/collections": "^0.10.6",
+        "decodelabs/collections": "^0.11",
         "decodelabs/phpstan-decodelabs": "^0.7"
     },
     "suggest": {

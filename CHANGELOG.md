@@ -1,3 +1,5 @@
+* Upgraded Collections dependency
+
 ## v0.1.7 (2025-02-15)
 * Upgraded Coercion dependency
 * Improved json typing
