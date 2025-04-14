@@ -11,8 +11,6 @@
 
 Hydro provides a simple interface to common HTTP client functionality using Guzzle under the hood.
 
-_Get news and updates on the [DecodeLabs blog](https://blog.decodelabs.com)._
-
 ---
 
 ## Installation
