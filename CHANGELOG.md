@@ -1,37 +1,82 @@
-* Upgraded Collections dependency
+# Changelog
 
-## v0.1.7 (2025-02-15)
-* Upgraded Coercion dependency
-* Improved json typing
+All notable changes to this project will be documented in this file.<br>
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## v0.1.6 (2025-02-15)
-* Updated Exceptional call signature
-* Upgraded PHPStan to v2
-* Updated dependencies
-* Tidied boolean logic
-* Fixed Exceptional syntax
-* Added PHP8.4 to CI workflow
-* Made PHP8.4 minimum version
+### Unreleased
+- Upgraded Collections dependency
 
-## v0.1.5 (2024-08-21)
-* Updated dependencies
-* Updated Veneer dependency and Stub
-* Removed unneeded LazyLoad binding attribute
+---
 
-## v0.1.4 (2024-07-17)
-* Updated Veneer dependency
+### [v0.1.7](https://github.com/decodelabs/hydro/commits/v0.1.7) - 15th February 2025
 
-## v0.1.3 (2024-06-19)
-* Fixed request() method
-* Made PHP8.1 minimum version
-* Refactored package file structure
+- Upgraded Coercion dependency
+- Improved json typing
 
-## v0.1.2 (2024-04-29)
-* Fixed Veneer stubs in gitattributes
-* Updated dependency list
+[Full list of changes](https://github.com/decodelabs/hydro/compare/v0.1.6...v0.1.7)
 
-## v0.1.1 (2023-10-16)
-* Updated Atlas dependency
+---
 
-## v0.1.0 (2023-10-16)
-* Built initial get file interface
+### [v0.1.6](https://github.com/decodelabs/hydro/commits/v0.1.6) - 15th February 2025
+
+- Updated Exceptional call signature
+- Upgraded PHPStan to v2
+- Updated dependencies
+- Tidied boolean logic
+- Fixed Exceptional syntax
+- Added PHP8.4 to CI workflow
+- Made PHP8.4 minimum version
+
+[Full list of changes](https://github.com/decodelabs/hydro/compare/v0.1.5...v0.1.6)
+
+---
+
+### [v0.1.5](https://github.com/decodelabs/hydro/commits/v0.1.5) - 21st August 2024
+
+- Updated dependencies
+- Updated Veneer dependency and Stub
+- Removed unneeded LazyLoad binding attribute
+
+[Full list of changes](https://github.com/decodelabs/hydro/compare/v0.1.4...v0.1.5)
+
+---
+
+### [v0.1.4](https://github.com/decodelabs/hydro/commits/v0.1.4) - 17th July 2024
+
+- Updated Veneer dependency
+
+[Full list of changes](https://github.com/decodelabs/hydro/compare/v0.1.3...v0.1.4)
+
+---
+
+### [v0.1.3](https://github.com/decodelabs/hydro/commits/v0.1.3) - 19th June 2024
+
+- Fixed request() method
+- Made PHP8.1 minimum version
+- Refactored package file structure
+
+[Full list of changes](https://github.com/decodelabs/hydro/compare/v0.1.2...v0.1.3)
+
+---
+
+### [v0.1.2](https://github.com/decodelabs/hydro/commits/v0.1.2) - 29th April 2024
+
+- Fixed Veneer stubs in gitattributes
+- Updated dependency list
+
+[Full list of changes](https://github.com/decodelabs/hydro/compare/v0.1.1...v0.1.2)
+
+---
+
+### [v0.1.1](https://github.com/decodelabs/hydro/commits/v0.1.1) - 16th October 2023
+
+- Updated Atlas dependency
+
+[Full list of changes](https://github.com/decodelabs/hydro/compare/v0.1.0...v0.1.1)
+
+---
+
+### [v0.1.0](https://github.com/decodelabs/hydro/commits/v0.1.0) - 16th October 2023
+
+- Built initial get file interface
