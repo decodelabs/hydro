@@ -10,8 +10,9 @@ declare(strict_types=1);
 namespace DecodeLabs\Hydro\Client;
 
 use DecodeLabs\Exceptional;
-use DecodeLabs\Hydro\ClientAbstract;
+use DecodeLabs\Hydro\Client;
 use DecodeLabs\Hydro\ClientExceptionTrait;
+use DecodeLabs\Hydro\ClientTrait;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Exception\ClientException as GuzzleClientException;
 use GuzzleHttp\Exception\ConnectException as GuzzleConnectException;
@@ -25,8 +26,10 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Throwable;
 
-class Guzzle extends ClientAbstract
+class Guzzle implements Client
 {
+    use ClientTrait;
+
     public function newRequest(
         string $method,
         string $url
@@ -34,9 +37,6 @@ class Guzzle extends ClientAbstract
         return new Request($method, $url);
     }
 
-    /**
-     * Send prepared request - PSR18
-     */
     public function sendRequest(
         RequestInterface $request,
         array $options = []
@@ -113,8 +113,6 @@ class Guzzle extends ClientAbstract
 
 
     /**
-     * Create new HTTP client
-     *
      * @param array<string, mixed> $options
      */
     public function newGuzzleClient(

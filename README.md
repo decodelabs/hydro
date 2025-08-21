@@ -27,13 +27,16 @@ Basic usage for different types of files:
 
 ```php
 use DecodeLabs\Hydro;
+use DecodeLabs\Monarch;
 
-$memoryFile = Hydro::get('https://example.com/file.txt'); // Atlas file
-$string = Hydro::getString('https://example.com/file.txt'); // String
-$file = Hydro::getFile('https://example.com/file.txt', '/path/to/save/file.txt'); // Local file
-$tempFile = Hydro::getTempFile('https://example.com/file.txt'); // Temp file
-$json = Hydro::getJson('https://example.com/file.json'); // Decoded JSON array
-$tree = Hydro::getJsonTree('https://example.com/file.json'); // Decoded JSON Collections/Tree
+$hydro = Monarch::getService(Hydro::class);
+
+$memoryFile = $hydro->get('https://example.com/file.txt'); // Atlas file
+$string = $hydro->getString('https://example.com/file.txt'); // String
+$file = $hydro->getFile('https://example.com/file.txt', '/path/to/save/file.txt'); // Local file
+$tempFile = $hydro->getTempFile('https://example.com/file.txt'); // Temp file
+$json = $hydro->getJson('https://example.com/file.json'); // Decoded JSON array
+$tree = $hydro->getJsonTree('https://example.com/file.json'); // Decoded JSON Collections/Tree
 ```
 
 ### Options
@@ -41,7 +44,7 @@ $tree = Hydro::getJsonTree('https://example.com/file.json'); // Decoded JSON Col
 Pass an array of options (including URL) to the underlying client:
 
 ```php
-Hydro::get([
+$hydro->get([
     'url' => 'https://example.com/file.txt',
     'timeout' => 10
 ]);
@@ -52,7 +55,7 @@ Hydro::get([
 Handle error status responses (or return alternative response):
 
 ```php
-$file = Hydro::get('https://example.com/file.txt', function($response) {
+$file = $hydro->get('https://example.com/file.txt', function($response) {
     switch($response->getStatusCode()) {
         case 404:
             throw Exceptional::Notfound(
@@ -65,7 +68,7 @@ $file = Hydro::get('https://example.com/file.txt', function($response) {
             );
 
         default:
-            return Hydro::request('GET', 'https://example.com/other.txt');
+            return $hydro->request('GET', 'https://example.com/other.txt');
     }
 });
 ```

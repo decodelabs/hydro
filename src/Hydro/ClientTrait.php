@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace DecodeLabs\Hydro;
 
 use Closure;
-
 use DecodeLabs\Atlas;
 use DecodeLabs\Atlas\File;
 use DecodeLabs\Coercion;
@@ -18,12 +17,11 @@ use DecodeLabs\Collections\Tree;
 use DecodeLabs\Deliverance\DataReceiver;
 use DecodeLabs\Exceptional;
 use DecodeLabs\Hydro\Psr\ClientException;
-
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 
-abstract class ClientAbstract implements Client
+trait ClientTrait
 {
     public function request(
         string $method,
@@ -133,8 +131,6 @@ abstract class ClientAbstract implements Client
 
 
     /**
-     * Fetch json file over HTTP
-     *
      * @param array<string, mixed> $url
      * @return Tree<string|int|float|bool>
      */
@@ -191,8 +187,6 @@ abstract class ClientAbstract implements Client
     }
 
     /**
-     * Send prepared request - PSR18
-     *
      * @param array<string, mixed> $options
      */
     abstract public function sendRequest(
@@ -201,17 +195,12 @@ abstract class ClientAbstract implements Client
     ): ResponseInterface;
 
 
-    /**
-     * Create new PSR7 request
-     */
     abstract protected function newRequest(
         string $method,
         string $url
     ): RequestInterface;
 
     /**
-     * Prepare URL from input string or array
-     *
      * @param string|array<string, mixed> $url
      */
     protected function prepareUrl(
@@ -231,8 +220,6 @@ abstract class ClientAbstract implements Client
     }
 
     /**
-     * Prepare options from input URL or array
-     *
      * @param string|array<string, mixed> $options
      * @param array<string, mixed> $defaults
      * @return array<string, mixed>
@@ -259,15 +246,12 @@ abstract class ClientAbstract implements Client
 
 
 
-    /**
-     * Save PSR7 response to disk
-     */
     public function responseToFile(
         ResponseInterface $response,
         string|File $file
     ): File {
         if (is_string($file)) {
-            $file = Atlas::file($file, 'wb');
+            $file = Atlas::getFile($file, 'wb');
         } elseif (!$file->isOpen()) {
             $file->open('wb');
         }
@@ -278,9 +262,7 @@ abstract class ClientAbstract implements Client
         return $file;
     }
 
-    /**
-     * Convert PSR7 response to DataProvider
-     */
+
     public function responseToMemoryFile(
         ResponseInterface $response
     ): File {
@@ -291,9 +273,7 @@ abstract class ClientAbstract implements Client
         return $file;
     }
 
-    /**
-     * Save PSR7 response to disk as temp file
-     */
+
     public function responseToTempFile(
         ResponseInterface $response
     ): File {
@@ -304,9 +284,7 @@ abstract class ClientAbstract implements Client
         return $file;
     }
 
-    /**
-     * Transfer PSR7 stream to DataReceiver
-     */
+
     public function transferStream(
         StreamInterface $stream,
         DataReceiver $receiver
