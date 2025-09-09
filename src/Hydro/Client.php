@@ -85,7 +85,7 @@ interface Client extends ClientInterface
 
     public function responseToFile(
         ResponseInterface $response,
-        string $path
+        string|File $path
     ): File;
 
     public function responseToMemoryFile(

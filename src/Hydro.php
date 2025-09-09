@@ -105,7 +105,7 @@ class Hydro implements Client, Service
 
     public function responseToFile(
         ResponseInterface $response,
-        string $path
+        string|File $path
     ): File {
         return $this->client->responseToFile($response, $path);
     }
