@@ -11,6 +11,7 @@ namespace DecodeLabs;
 
 use Closure;
 use DecodeLabs\Atlas\File;
+use DecodeLabs\Atlas\File\Memory as MemoryFile;
 use DecodeLabs\Collections\Tree;
 use DecodeLabs\Deliverance\DataReceiver;
 use DecodeLabs\Hydro\Client;
@@ -84,7 +85,7 @@ class Hydro implements Client, Service
     public function getTempFile(
         string|array $url,
         ?Closure $onFailure = null
-    ): File {
+    ): MemoryFile {
         return $this->client->getTempFile($url, $onFailure);
     }
 
@@ -112,7 +113,7 @@ class Hydro implements Client, Service
 
     public function responseToMemoryFile(
         ResponseInterface $response
-    ): File {
+    ): MemoryFile {
         return $this->client->responseToMemoryFile($response);
     }
 

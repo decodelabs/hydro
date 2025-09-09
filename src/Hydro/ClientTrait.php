@@ -12,6 +12,7 @@ namespace DecodeLabs\Hydro;
 use Closure;
 use DecodeLabs\Atlas;
 use DecodeLabs\Atlas\File;
+use DecodeLabs\Atlas\File\Memory as MemoryFile;
 use DecodeLabs\Coercion;
 use DecodeLabs\Collections\Tree;
 use DecodeLabs\Deliverance\DataReceiver;
@@ -103,13 +104,13 @@ trait ClientTrait
     public function getTempFile(
         string|array $url,
         ?Closure $onFailure = null
-    ): File {
+    ): MemoryFile {
         $request = $this->newRequest(
             'GET',
             $this->prepareUrl($url)
         );
 
-        return $this->responseToTempFile(
+        return $this->responseToMemoryFile(
             $this->manageRequest(
                 $request,
                 $onFailure,
@@ -265,22 +266,11 @@ trait ClientTrait
 
     public function responseToMemoryFile(
         ResponseInterface $response
-    ): File {
+    ): MemoryFile {
         $file = Atlas::newMemoryFile();
         $this->transferStream($response->getBody(), $file);
 
         $file->setPosition(0);
-        return $file;
-    }
-
-
-    public function responseToTempFile(
-        ResponseInterface $response
-    ): File {
-        $file = Atlas::newTempFile();
-        $this->transferStream($response->getBody(), $file);
-
-        $file->close();
         return $file;
     }
 

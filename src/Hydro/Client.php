@@ -11,6 +11,7 @@ namespace DecodeLabs\Hydro;
 
 use Closure;
 use DecodeLabs\Atlas\File;
+use DecodeLabs\Atlas\File\Memory as MemoryFile;
 use DecodeLabs\Collections\Tree;
 use DecodeLabs\Deliverance\DataReceiver;
 use Psr\Http\Client\ClientInterface;
@@ -60,7 +61,7 @@ interface Client extends ClientInterface
     public function getTempFile(
         string|array $url,
         ?Closure $onFailure = null
-    ): File;
+    ): MemoryFile;
 
     /**
      * @param string|array<string,mixed> $url
@@ -90,7 +91,7 @@ interface Client extends ClientInterface
 
     public function responseToMemoryFile(
         ResponseInterface $response
-    ): File;
+    ): MemoryFile;
 
     public function transferStream(
         StreamInterface $stream,
