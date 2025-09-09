@@ -11,6 +11,7 @@ namespace DecodeLabs;
 
 use Closure;
 use DecodeLabs\Atlas\File;
+use DecodeLabs\Atlas\File\Local as LocalFile;
 use DecodeLabs\Atlas\File\Memory as MemoryFile;
 use DecodeLabs\Collections\Tree;
 use DecodeLabs\Deliverance\DataReceiver;
@@ -76,9 +77,9 @@ class Hydro implements Client, Service
 
     public function getFile(
         string|array $url,
-        string $path,
+        string|LocalFile $path,
         ?Closure $onFailure = null
-    ): File {
+    ): LocalFile {
         return $this->client->getFile($url, $path, $onFailure);
     }
 
@@ -106,8 +107,8 @@ class Hydro implements Client, Service
 
     public function responseToFile(
         ResponseInterface $response,
-        string|File $path
-    ): File {
+        string|LocalFile $path
+    ): LocalFile {
         return $this->client->responseToFile($response, $path);
     }
 

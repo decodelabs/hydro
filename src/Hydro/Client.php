@@ -11,6 +11,7 @@ namespace DecodeLabs\Hydro;
 
 use Closure;
 use DecodeLabs\Atlas\File;
+use DecodeLabs\Atlas\File\Local as LocalFile;
 use DecodeLabs\Atlas\File\Memory as MemoryFile;
 use DecodeLabs\Collections\Tree;
 use DecodeLabs\Deliverance\DataReceiver;
@@ -51,9 +52,9 @@ interface Client extends ClientInterface
      */
     public function getFile(
         string|array $url,
-        string $path,
+        string|LocalFile $path,
         ?Closure $onFailure = null
-    ): File;
+    ): LocalFile;
 
     /**
      * @param string|array<string,mixed> $url
@@ -86,8 +87,8 @@ interface Client extends ClientInterface
 
     public function responseToFile(
         ResponseInterface $response,
-        string|File $path
-    ): File;
+        string|LocalFile $path
+    ): LocalFile;
 
     public function responseToMemoryFile(
         ResponseInterface $response

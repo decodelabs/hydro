@@ -12,6 +12,7 @@ namespace DecodeLabs\Hydro;
 use Closure;
 use DecodeLabs\Atlas;
 use DecodeLabs\Atlas\File;
+use DecodeLabs\Atlas\File\Local as LocalFile;
 use DecodeLabs\Atlas\File\Memory as MemoryFile;
 use DecodeLabs\Coercion;
 use DecodeLabs\Collections\Tree;
@@ -82,9 +83,9 @@ trait ClientTrait
 
     public function getFile(
         string|array $url,
-        string $path,
+        string|LocalFile $path,
         ?Closure $onFailure = null
-    ): File {
+    ): LocalFile {
         $request = $this->newRequest(
             'GET',
             $this->prepareUrl($url)
@@ -249,9 +250,10 @@ trait ClientTrait
 
     public function responseToFile(
         ResponseInterface $response,
-        string|File $file
-    ): File {
+        string|LocalFile $file
+    ): LocalFile {
         if (is_string($file)) {
+            /** @var LocalFile $file */
             $file = Atlas::getFile($file, 'wb');
         } elseif (!$file->isOpen()) {
             $file->open('wb');
