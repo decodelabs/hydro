@@ -15,6 +15,8 @@ Hydro provides a simple interface to common HTTP client functionality using Guzz
 
 ## Installation
 
+This package requires PHP 8.4 or higher.
+
 Install via Composer:
 
 ```bash
