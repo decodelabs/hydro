@@ -11,6 +11,7 @@ namespace DecodeLabs\Hydro;
 
 use Closure;
 use DecodeLabs\Atlas;
+use DecodeLabs\Atlas\Dir\Local as LocalDir;
 use DecodeLabs\Atlas\File;
 use DecodeLabs\Atlas\File\Local as LocalFile;
 use DecodeLabs\Atlas\File\Memory as MemoryFile;
@@ -83,7 +84,7 @@ trait ClientTrait
 
     public function getFile(
         string|array $url,
-        string|LocalFile $path,
+        string|LocalFile|LocalDir $path,
         ?Closure $onFailure = null
     ): LocalFile {
         $request = $this->newRequest(
@@ -92,13 +93,49 @@ trait ClientTrait
         );
 
         return $this->responseToFile(
-            $this->manageRequest(
+            $response = $this->manageRequest(
                 $request,
                 $onFailure,
                 $this->prepareOptions($url)
             ),
-            $path
+            $this->getDownloadFile($path, $request, $response)
         );
+    }
+
+    protected function getDownloadFile(
+        string|LocalFile|LocalDir $file,
+        RequestInterface $request,
+        ResponseInterface $response
+    ): LocalFile {
+        if ($file instanceof LocalFile) {
+            return $file;
+        }
+
+        if (is_string($file)) {
+            if (str_ends_with($file, '/')) {
+                /** @var LocalDir $file */
+                $file = Atlas::getDir($file);
+            } else {
+                /** @var LocalFile $file */
+                $file = Atlas::getFile($file);
+                return $file;
+            }
+        }
+
+        $disposition = $response->getHeaderLine('Content-Disposition');
+        $fileName = '';
+
+        if (preg_match('/filename="([^"]+)"/', $disposition, $matches)) {
+            $fileName = $matches[1];
+            /** @var LocalFile $output */
+            $output = $file->getFile($fileName);
+            return $output;
+        }
+
+        $fileName = basename($request->getUri()->getPath());
+        /** @var LocalFile $output */
+        $output = $file->getFile($fileName);
+        return $output;
     }
 
 

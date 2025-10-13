@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace DecodeLabs\Hydro;
 
 use Closure;
+use DecodeLabs\Atlas\Dir\Local as LocalDir;
 use DecodeLabs\Atlas\File;
 use DecodeLabs\Atlas\File\Local as LocalFile;
 use DecodeLabs\Atlas\File\Memory as MemoryFile;
@@ -52,7 +53,7 @@ interface Client extends ClientInterface
      */
     public function getFile(
         string|array $url,
-        string|LocalFile $path,
+        string|LocalFile|LocalDir $path,
         ?Closure $onFailure = null
     ): LocalFile;
 
