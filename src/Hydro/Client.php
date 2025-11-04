@@ -1,8 +1,8 @@
 <?php
 
 /**
- * @package Hydro
- * @license http://opensource.org/licenses/MIT
+ * Hydro
+ * @license https://opensource.org/licenses/MIT
  */
 
 declare(strict_types=1);
