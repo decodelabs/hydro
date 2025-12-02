@@ -2,7 +2,7 @@
     "name": "decodelabs/hydro",
     "description": "Simple PSR18 HTTP client wrapper around Guzzle",
     "type": "library",
-    "keywords": [],
+    "keywords": [ ],
     "license": "MIT",
     "authors": [
         {
@@ -23,7 +23,7 @@
         "guzzlehttp/guzzle": "^7.9.3"
     },
     "require-dev": {
-        "decodelabs/chorus": "^0.1",
+        "decodelabs/chorus": ">0",
         "decodelabs/collections": "^0.12",
         "decodelabs/phpstan-decodelabs": "^0.7"
     },
