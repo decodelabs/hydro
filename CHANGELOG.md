@@ -5,10 +5,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Unreleased
+--
+
+---
+
+### [v0.2.6](https://github.com/decodelabs/hydro/commits/v0.2.6) - 16th November 2026
+
 - Preserved scalar JSON tree types during inference
 - Improved doc comment headers
 - Added AGENTS.md
 - Integrated Chorus dev dependency
+
+[Full list of changes](https://github.com/decodelabs/hydro/compare/v0.2.5...v0.2.6)
 
 ---
 
@@ -159,4 +167,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### [v0.1.0](https://github.com/decodelabs/hydro/commits/v0.1.0) - 16th October 2023
 
 - Built initial get file interface
-
