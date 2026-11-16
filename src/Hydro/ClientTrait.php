@@ -186,13 +186,14 @@ trait ClientTrait
         $json = $this->getJson($url, $onFailure);
 
         if (is_iterable($json)) {
+            /** @var Tree<string|int|float|bool> $output */
             // @phpstan-ignore-next-line
             $output = new Tree($json);
         } else {
+            /** @var Tree<string|int|float|bool> $output */
             $output = new Tree(null, $json);
         }
 
-        /** @var Tree<string|int|float|bool> $output */
         return $output;
     }
 
